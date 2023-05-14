@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<style>
+    body {
+        background-color: rgb(#dbe1f1);
+    }
+    header {
+        text-align: center;
+    }
+    .title {
+        font-weight: bold;
+        padding-top: 50px;
+    }
+    .article_1 {
+        text-align: right;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .article_list {
+        padding-bottom: 30px;
+    }
+    .div_list {
+        width: 100%;
+        border: 2px solid gray;
+        border-radius: 32px;
+        box-shadow: 1px 1px 5px gray;
+    }
+    img {
+        width: 100%;
+        height: 150px;
+        border-radius: 30px 30px 0px 0px;
+    }
+    .text_div {
+        padding: 10px 20px;
+    }
+    .p_title {
+        font-size: 15px;
+    }
+    .p_price {
+        font-weight: bold;
+    }
+    .p_address {
+        font-size: 13px;
+    }
+    table {
+        width: 100%;
+    }
+    .count {
+        font-weight: bold;
+    }
+    .article_2 {
+        text-align: center;
+    }
+    #btnPlus {
+        margin-top: 20px;
+        border-radius: 10px;
+        background-color: white;
+        font-weight: bold;
+        width: 80px;
+        height: 40px;
+        box-shadow: 1px 1px 5px gray;
+    }
+    #category_select {
+        width: 150px;
+        height: 30px;
+        border-radius: 10px;
+    }
+
+   
+
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h2 class="title">중고장터</h2>
+    </header>
+    <section class="row">
+        <article class="article_1 col-12">
+            <select id="category_select" name="category">
+                <option selected>전체상품</option>
+                <option>생활용품</option>
+                <option>전자기기</option>
+                <option>취미</option>
+                <option>의류</option>
+                <option>기타</option>
+            </select>
+        </article>
+        <article class="article_list col-lg-3 col-md-6 col-sm-12">
+            <div class="div_list">
+                <div>
+                    <img src="https://cdn.pixabay.com/photo/2016/01/05/17/51/maltese-1123016_960_720.jpg" alt="">
+                </div>
+                <div class="text_div">
+                    <table>
+                        <tr>
+                            <td>
+                                <span class="p_title">스마트폰 팝니다</span> <br>
+                                <span class="p_price">10000원</span> <br>
+                                <span class="p_address">서울특별시 성북구</span>
+                            </td>
+                            <td style="text-align: right;">
+                                
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" color="red"/>
+                                    </svg>
+                                <span class="count">32</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </article>
+        <article class="article_list col-lg-3 col-md-6 col-sm-12">
+            <div class="div_list">
+                <div>
+                    <img src="https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313_960_720.jpg" alt="">
+                </div>
+                <div class="text_div">
+                    <table>
+                        <tr>
+                            <td>
+                                <span class="p_title">스마트폰 팝니다</span> <br>
+                                <span class="p_price">10000원</span> <br>
+                                <span class="p_address">서울특별시 성북구</span>
+                            </td>
+                            <td style="text-align: right;">
+                                
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" color="red"/>
+                                    </svg>
+                                <span class="count">32</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </article>
+        <article class="article_list col-lg-3 col-md-6 col-sm-12">
+            <div class="div_list">
+                <div>
+                    <img src="https://cdn.pixabay.com/photo/2017/09/25/13/12/puppy-2785074_1280.jpg" alt="">
+                </div>
+                <div class="text_div">
+                    <table>
+                        <tr>
+                            <td>
+                                <span class="p_title">스마트폰 팝니다</span> <br>
+                                <span class="p_price">10000원</span> <br>
+                                <span class="p_address">서울특별시 성북구</span>
+                            </td>
+                            <td style="text-align: right;">
+                                
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" color="red"/>
+                                    </svg>
+                                <span class="count">32</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </article>
+        <article class="article_list col-lg-3 col-md-6 col-sm-12">
+            <div class="div_list">
+                <div>
+                    <img src="https://cdn.pixabay.com/photo/2018/05/11/08/11/dog-3389729_960_720.jpg" alt="">
+                </div>
+                <div class="text_div">
+                    <table>
+                        <tr>
+                            <td>
+                                <span class="p_title">스마트폰 팝니다</span> <br>
+                                <span class="p_price">10000원</span> <br>
+                                <span class="p_address">서울특별시 성북구</span>
+                            </td>
+                            <td style="text-align: right;">
+                                
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" color="red"/>
+                                    </svg>
+                                <span class="count">32</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </article>
+        <article class="article_list col-lg-3 col-md-6 col-sm-12">
+            <div class="div_list">
+                <div>
+                    <img src="https://cdn.pixabay.com/photo/2020/10/06/11/50/dog-5632005_960_720.jpg" alt="">
+                </div>
+                <div class="text_div">
+                    <table>
+                        <tr>
+                            <td>
+                                <span class="p_title">스마트폰 팝니다</span> <br>
+                                <span class="p_price">10000원</span> <br>
+                                <span class="p_address">서울특별시 성북구</span>
+                            </td>
+                            <td style="text-align: right;">
+                                
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" color="red"/>
+                                    </svg>
+                                <span class="count">32</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </article>
+        <article class="article_list col-lg-3 col-md-6 col-sm-12">
+            <div class="div_list">
+                <div>
+                    <img src="https://cdn.pixabay.com/photo/2020/12/21/08/36/dog-5849152_960_720.jpg" alt="">
+                </div>
+                <div class="text_div">
+                    <table>
+                        <tr>
+                            <td>
+                                <span class="p_title">스마트폰 팝니다</span> <br>
+                                <span class="p_price">10000원</span> <br>
+                                <span class="p_address">서울특별시 성북구</span>
+                            </td>
+                            <td style="text-align: right;">
+                                
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" color="red"/>
+                                    </svg>
+                                <span class="count">32</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </article>
+        <article class="article_list col-lg-3 col-md-6 col-sm-12">
+            <div class="div_list">
+                <div>
+                    <img src="https://cdn.pixabay.com/photo/2019/07/29/14/29/dog-4370694_960_720.jpg" alt="">
+                </div>
+                <div class="text_div">
+                    <table>
+                        <tr>
+                            <td>
+                                <span class="p_title">스마트폰 팝니다</span> <br>
+                                <span class="p_price">10000원</span> <br>
+                                <span class="p_address">서울특별시 성북구</span>
+                            </td>
+                            <td style="text-align: right;">
+                                
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" color="red"/>
+                                    </svg>
+                                <span class="count">32</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </article>
+        <article class="article_list col-lg-3 col-md-6 col-sm-12">
+            <div class="div_list">
+                <div>
+                    <img src="https://cdn.pixabay.com/photo/2019/05/28/05/47/puppy-4234435_960_720.jpg" alt="">
+                </div>
+                <div class="text_div">
+                    <table>
+                        <tr>
+                            <td>
+                                <span class="p_title">스마트폰 팝니다</span> <br>
+                                <span class="p_price">10000원</span> <br>
+                                <span class="p_address">서울특별시 성북구</span>
+                            </td>
+                            <td style="text-align: right;">
+                                
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" color="red"/>
+                                    </svg>
+                                <span class="count">32</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </article>
+        
+        
+        <article class=" article_2 col-12">
+            <button type="button" id="btnPlus">더보기</button>
+        </article>
+
+    </section>
+</div>
+</body>
+</html>

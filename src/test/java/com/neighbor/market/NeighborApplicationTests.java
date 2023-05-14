@@ -10,9 +10,4 @@ class NeighborApplicationTests {
 	void contextLoads() {
 	}
 
-	@Test
-	void song() {
-
-	}
-
 }
