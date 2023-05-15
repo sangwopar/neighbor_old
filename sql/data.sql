@@ -99,7 +99,7 @@ ALTER TABLE Product
 
 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
-— 테이블 생성 SQL - Category
+—- 테이블 생성 SQL - Category
 CREATE TABLE Category
 (
     `categoryId`     BIGINT          NOT NULL    AUTO_INCREMENT COMMENT '카테고리아이디',
