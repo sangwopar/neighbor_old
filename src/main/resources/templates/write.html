@@ -9,28 +9,41 @@
 <script>
     function setThumbnail(event) {
         for (var image of event.target.files) {
-          var reader = new FileReader();
+            var reader = new FileReader();
 
-          reader.onload = function(event) {
+            reader.onload = function(event) {
             var img = document.createElement("img");
             img.setAttribute("src", event.target.result);
+            img.setAttribute("onclick", "deleteImg(this);");
             document.querySelector("div#image_container").appendChild(img);
-          };
-
-          console.log(image);
-          reader.readAsDataURL(image);
+            };
+            reader.readAsDataURL(image);
         }
-      }
+    }
+
+    function deleteImg(imgElement) {
+        var imageInput = document.querySelector("input#image");
+        imageInput.value = ""; // Clear the selected files
+        imgElement.remove();
+    }
 </script>
 <style>
-    img {
-        width: 100px;
-        height: 100px;
-    }
+img {
+    width: 100px;
+    height: 100px;
+}
 </style>
 <body>
-    <input type="file" id="image" accept="image/*" onchange="setThumbnail(event);" multiple/>
-    <div id="image_container"></div>
+<div class="container">
+    <form>
+        <label for="title">제목</label>
+        <input type="text" id="title" name="title"> <br>
+        <label for="title">내용</label>
+        <textarea rows="5" cols="20" id="title" name="title"></textarea>
+        <input type="file" id="image" accept="image/*" onchange="setThumbnail(event);" multiple/>
+        <div id="image_container"></div>
+    </form>
+</div>
 </body>
 </head>
 </html>
