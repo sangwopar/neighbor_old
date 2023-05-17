@@ -10,24 +10,24 @@
 <body>
 <section class="login-form">
     <h1>JOIN</h1>
-    <form action="joinUser.do" method="post">
+    <form action="joinMember.do" method="post">
         <div class="int-area">
-            <input type="email" name="userEmail" id="userEmail" autocomplete="off" required>
-            <label for="userEmail">USER E-MAIL</label>
+            <input type="email" name="memberEmail" id="memberEmail" autocomplete="off" required>
+            <label for="memberEmail">USER E-MAIL</label>
         </div>
         <div class="int-area">
-            <input name="userName" id="userName" autocomplete="off" required>
-            <label for="userName">USER NAME</label>
+            <input name="memberName" id="memberName" autocomplete="off" required>
+            <label for="memberName">USER NAME</label>
         </div>
 
 
         <div class="int-area">
-            <input type="password" name="userPassword" id="userPassword" autocomplete="off" required>
-            <label for="userPassword">PASSWORD</label>
+            <input type="password" name="memberPassword" id="memberPassword" autocomplete="off" required>
+            <label for="memberPassword">PASSWORD</label>
         </div>
         <div class="int-area">
-            <input type="password" name="userPassword" id="passCheck" autocomplete="off" required>
-            <label for="userPassword">PASSCHECK</label>
+            <input type="password"  id="passCheck" autocomplete="off" required>
+            <label for="passCheck">PASSCHECK</label>
         </div>
 
         <div class="int-area">
@@ -47,14 +47,14 @@
         </div>
 
         <div class="int-area">
-                <fieldset class="mbti">
+                <fieldset class="mbti" name="mbti">
                     <legend class="mbti-title">MBTI</legend>
                         <select name="m" class="select-box">
                             <option value="e">E</option>
                             <option value="i">I</option>
                         </select>
                         <select name="b" class="select-box">
-                            <option value="e">S</option>
+                            <option value="s">S</option>
                             <option value="n">N</option>
                         </select>
                         <select name="t" class="select-box">
@@ -80,28 +80,28 @@
 
 
 <script th:inline="javascript">
-    let userEmail = $('#userEmail');
-    let userName = $('#userName');
-    let userPassword = $('#userPassword');
+    let memberEmail = $('#memberEmail');
+    let memberName = $('#memberName');
+    let memberPassword = $('#memberPassword');
     let passCheck = $('#passCheck');
     let region = $('#region');
     let addressDetail = $('#addressDetail');
     let btn = $('#btn');
 
     $(btn).on('click', function (){
-        if($(userEmail).val() == ""){
-            $(userEmail).next('label').addClass('warning');
+        if($(memberEmail).val() == ""){
+            $(memberEmail).next('label').addClass('warning');
             setTimeout(function (){
                 $('label').removeClass('warning');
             },1500);
         }
-        else if($(userName).val() == ""){
-            $(userName).next('label').addClass('warning');
+        else if($(memberName).val() == ""){
+            $(memberName).next('label').addClass('warning');
             setTimeout(function (){
                 $('label').removeClass('warning');
             },1500);
-        }else if($(userPassword).val() == ""){
-            $(userPassword).next('label').addClass('warning');
+        }else if($(memberPassword).val() == ""){
+            $(memberPassword).next('label').addClass('warning');
             setTimeout(function (){
                 $('label').removeClass('warning');
             },1500);
