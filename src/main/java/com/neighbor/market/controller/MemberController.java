@@ -52,5 +52,12 @@ public class MemberController {
         memberService.logout(session);
         return "logoutTest";
     }
+    @GetMapping("/memberOut")
+    public ModelAndView memberOut(HttpSession session,ModelAndView mav){
+        memberService.memberOut(session);
+        mav.addObject("memberOut","회원탈퇴다븅시나");
+        mav.setViewName("memberOutTest");
+        return mav;
+    }
 
 }
