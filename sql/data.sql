@@ -4,13 +4,14 @@ CREATE TABLE User
     `userId`        BIGINT          NOT NULL    AUTO_INCREMENT COMMENT '사용자아이디',
     `userName`      VARCHAR(45)     NOT NULL    COMMENT '닉네임',
     `userPassword`  VARCHAR(45)     NOT NULL    COMMENT '비밀번호',
-    `profileImage`  VARCHAR(300)    NULL        COMMENT '프로필이미지',
+    `profileImage`  VARCHAR(255)    NULL        COMMENT '프로필이미지',
     `userEmail`     VARCHAR(45)     NOT NULL    COMMENT '이메일',
     `region`        VARCHAR(30)     NOT NULL    COMMENT '지역',
-    `createdAt`     DATE            NOT NULL    COMMENT '가입날짜',
+    `addressDetail` VARCHAR(255)    NOT NULL    COMMENT '상세주소',
+    `createdAt`     DATETIME        DEFAULT CURRENT_TIMESTAMP    COMMENT '가입날짜',
     `mbti`          VARCHAR(4)      NULL        COMMENT 'mbti',
-    `score`         FLOAT           NOT NULL    COMMENT '사용자점수',
-    `exit`          TINYINT(1)      NOT NULL    COMMENT '탈퇴여부',
+    `score`         INT           DEFAULT 50   COMMENT '사용자점수',
+    `out`          TINYINT(1)       DEFAULT 0    COMMENT '탈퇴여부',
     PRIMARY KEY (userId)
 );
 
@@ -31,14 +32,13 @@ CREATE TABLE Post
     `postNum`    BIGINT         NOT NULL    AUTO_INCREMENT COMMENT '게시글번호',
     `countNum`   BIGINT         NOT NULL    COMMENT '조회수',
     `postType`   INT            NOT NULL    COMMENT '게시글타입',
-    `mbti`       VARCHAR(4)     NULL        COMMENT 'mbti',
     PRIMARY KEY (postNum)
 );
 
 -- Foreign Key 설정 SQL - Post(userId, region, mbti) -> User(userId, region, mbti)
 ALTER TABLE Post
-    ADD CONSTRAINT FK_Post_userId_User_userId FOREIGN KEY (userId, region, mbti)
-        REFERENCES User (userId, region, mbti) ON DELETE RESTRICT ON UPDATE RESTRICT;
+    ADD CONSTRAINT FK_Post_userId_User_userId FOREIGN KEY (userId, region)
+        REFERENCES User (userId, region) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 -- Foreign Key 삭제 SQL - Post(userId, region, mbti)
 -- ALTER TABLE Post
@@ -99,14 +99,14 @@ ALTER TABLE Product
 
 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
-— 테이블 생성 SQL - Category
+—- 테이블 생성 SQL - Category
 CREATE TABLE Category
 (
     `categoryId`     BIGINT          NOT NULL    AUTO_INCREMENT COMMENT '카테고리아이디',
     `categoryName`   VARCHAR(100)    NOT NULL    COMMENT '카테고리명',
-    `categoryImage`  VARCHAR(400)    NOT NULL    COMMENT '카테고리이미지',
     PRIMARY KEY (categoryId)
 );
+
 
 — Foreign Key 설정 SQL - Category(categoryId) -> Product(categoryId)
 ALTER TABLE Category

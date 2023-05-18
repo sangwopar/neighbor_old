@@ -8,15 +8,15 @@
 </head>
 <body>
 <section class="login-form">
-  <h1 th:text="test"></h1>
-  <form action="#" method="post">
+  <h1>LOGIN</h1>
+  <form action="/loginMember.do" method="post">
     <div class="int-area">
-      <input type="email" name="userEmail" id="userEmail" autocomplete="off" required>
-      <label for="userEmail">USER E-MAIL</label>
+      <input type="email" name="memberEmail" id="memberEmail" autocomplete="off" required>
+      <label for="memberEmail">USER E-MAIL</label>
     </div>
     <div class="int-area">
-      <input type="password" name="userPassword" id="userPassword" autocomplete="off" required>
-      <label for="userPassword">PASSWORD</label>
+      <input type="password" name="memberPassword" id="memberPassword" autocomplete="off" required>
+      <label for="memberPassword">PASSWORD</label>
     </div>
     <div class="btn-area">
       <button id="btn">LOGIN</button>
@@ -28,18 +28,18 @@
 </section>
 
 <script th:inline="javascript">
-  let userEmail = $('#userEmail');
-  let userPassword = $('#userPassword');
+  let memberEmail = $('#memberEmail');
+  let memberPassword = $('#memberPassword');
   let btn = $('#btn');
 
   $(btn).on('click', function (){
-    if($(userEmail).val() == ""){
-      $(userEmail).next('label').addClass('warning');
+    if($(memberEmail).val() == ""){
+      $(memberEmail).next('label').addClass('warning');
       setTimeout(function (){
         $('label').removeClass('warning');
       },1500);
-    }else if($(userPassword).val() == ""){
-      $(userPassword).next('label').addClass('warning');
+    }else if($(memberPassword).val() == ""){
+      $(memberPassword).next('label').addClass('warning');
       setTimeout(function (){
         $('label').removeClass('warning');
       },1500);
