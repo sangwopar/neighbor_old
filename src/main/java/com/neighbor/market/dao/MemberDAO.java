@@ -11,7 +11,6 @@ import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 @Mapper
-@Repository
 public interface MemberDAO {
     @Insert("INSERT INTO member (memberName, memberPassword, memberEmail, region,addressDetail ,createdAt, score, mbti) " +
             "VALUES (#{memberName},#{memberPassword},#{memberEmail},#{region},#{addressDetail} ,current_timestamp, 0.0,#{mbti})")
