@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
 @Mapper
 public interface DealPostDAO {
     @Insert("insert into post (memberId, region, title, content, postType) values (#{memberId}, #{region}, #{title}, #{content}, #{postType})")
