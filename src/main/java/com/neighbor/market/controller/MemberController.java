@@ -20,6 +20,7 @@ public class MemberController {
 
 
 
+
     @GetMapping("/login")
     public String login(){
         return "neighborMember/login";
@@ -29,7 +30,7 @@ public class MemberController {
         ModelAndView mav = new ModelAndView();
         int result=memberService.login(dto,session);
         if(result==1){//로그인성공
-            mav.setViewName("loginTest");
+            mav.setViewName("index");
         }else{
             mav.setViewName("neighborMember/join");
         }
@@ -50,13 +51,12 @@ public class MemberController {
     @GetMapping("/logout")//로그아웃
     public String logout(HttpSession session){
         memberService.logout(session);
-        return "logoutTest";
+        return "index";
     }
     @GetMapping("/memberOut")
     public ModelAndView memberOut(HttpSession session,ModelAndView mav){
         memberService.memberOut(session);
-        mav.addObject("memberOut","회원탈퇴다븅시나");
-        mav.setViewName("memberOutTest");
+        mav.setViewName("index");
         return mav;
     }
 
