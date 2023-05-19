@@ -14,13 +14,29 @@ public class MemberDTO {
     private Date createdAt;//아이디생성날짜
     private String mbti;
     private int score;//사용자점수
-    private int out;//회원탈퇴
-
-
-    //
-
+    private int memberOut;
 
     public MemberDTO() {
+    }
+
+    @Override
+    public String toString() {
+        return "MemberDTO{" +
+                "memberId=" + memberId +
+                ", memberName='" + memberName + '\'' +
+                ", memberPassword='" + memberPassword + '\'' +
+                ", profileImage='" + profileImage + '\'' +
+                ", memberEmail='" + memberEmail + '\'' +
+                ", region='" + region + '\'' +
+                ", addressDetail='" + addressDetail + '\'' +
+                ", createdAt=" + createdAt +
+                ", mbti='" + mbti + '\'' +
+                ", score=" + score +
+                ", memberOut=" + memberOut +
+                '}';
+    }
+
+    public MemberDTO(long memberId, String memberName, String memberPassword, String profileImage, String memberEmail, String region, String addressDetail, Date createdAt, String mbti, int score, int memberOut) {
         this.memberId = memberId;
         this.memberName = memberName;
         this.memberPassword = memberPassword;
@@ -31,7 +47,7 @@ public class MemberDTO {
         this.createdAt = createdAt;
         this.mbti = mbti;
         this.score = score;
-        this.out = out;
+        this.memberOut = memberOut;
     }
 
     public long getMemberId() {
@@ -114,11 +130,11 @@ public class MemberDTO {
         this.score = score;
     }
 
-    public int getOut() {
-        return out;
+    public int getMemberOut() {
+        return memberOut;
     }
 
-    public void setOut(int out) {
-        this.out = out;
+    public void setMemberOut(int memberOut) {
+        this.memberOut = memberOut;
     }
 }
