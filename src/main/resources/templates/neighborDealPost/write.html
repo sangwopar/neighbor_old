@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script th:src="@{/js/jquery-3.6.3.min.js}" type="text/javascript"></script>
+<script>
+    function setThumbnail(event) {
+        for (var image of event.target.files) {
+            var reader = new FileReader();
+
+            reader.onload = function(event) {
+            var img = document.createElement("img");
+            img.setAttribute("src", event.target.result);
+            img.setAttribute("onclick", "deleteImg(this);");
+            document.querySelector("div#image_container").appendChild(img);
+            };
+            reader.readAsDataURL(image);
+        }
+    }
+
+    function deleteImg(imgElement) {
+        var imageInput = document.querySelector("input#image");
+        imageInput.value = ""; // Clear the selected files
+        imgElement.remove();
+    }
+</script>
+<style>
+img {
+    width: 100px;
+    height: 100px;
+}
+</style>
+<body>
+<div class="container">
+    <form>
+        <label for="title">제목</label>
+        <input type="text" id="title" name="title"> <br>
+        <label for="title">내용</label>
+        <textarea rows="5" cols="20" id="title" name="title"></textarea>
+        <input type="file" id="image" accept="image/*" onchange="setThumbnail(event);" multiple/>
+        <div id="image_container"></div>
+    </form>
+</div>
+</body>
+</head>
+</html>
