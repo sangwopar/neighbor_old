@@ -8,9 +8,13 @@
 <span th:text="${session.memberId}"></span>
 <span th:text="${session.memberName}"></span>
 <input type="button" onclick="logout()" value="로그아웃">
+<input type="button" onclick="memberOut()" value="회원탈퇴">
 <script type="text/javascript">
     function logout() {
         location.href="/logout";
+    }
+    function memberOut(){
+        location.href="/memberOut";
     }
 </script>
 </body>
