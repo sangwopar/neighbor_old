@@ -2,10 +2,14 @@ package com.neighbor.market.dao;
 
 import com.neighbor.market.dto.DealPostDTO;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
+@Mapper
 public interface DealPostDAO {
     @Insert("insert into post (memberId, region, title, content, postType) values (#{memberId}, #{region}, #{title}, #{content}, #{postType})")
     public void write(DealPostDTO dto);
