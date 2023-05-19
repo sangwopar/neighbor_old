@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span th:text="${session.memberId}"></span>
+<span th:text="${session.memberName}"></span>
+<input type="button" onclick="logout()" value="로그아웃">
+<script type="text/javascript">
+    function logout() {
+        location.href="/logout";
+    }
+</script>
+</body>
+</html>
