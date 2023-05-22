@@ -1,20 +1,19 @@
 package com.neighbor.market.controller;
 
-import com.neighbor.market.dto.MemberDTO2;
-import com.neighbor.market.service.MemberService2;
+import com.neighbor.market.dto.MemberDTO;
+import com.neighbor.market.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 
-public class MemberController2 {
-    private MemberService2 memberService2;
+public class MemberController {
+    private MemberService memberService;
     @Autowired
-    public MemberController2(MemberService2 memberService2){
-        this.memberService2 = memberService2;
+    public MemberController(MemberService memberService){
+        this.memberService = memberService;
     }
 
 
@@ -24,9 +23,9 @@ public class MemberController2 {
         return "neighborMember/login";
     }
     @PostMapping("/loginMember.do")//로그인
-    public ModelAndView loginUser(MemberDTO2 dto, HttpSession session){
+    public ModelAndView loginUser(MemberDTO dto, HttpSession session){
         ModelAndView mav = new ModelAndView();
-        int result= memberService2.login(dto,session);
+        int result= memberService.login(dto,session);
         if(result==1){//로그인성공
             mav.setViewName("loginTest");
         }else{
@@ -40,15 +39,15 @@ public class MemberController2 {
     }
 
     @PostMapping("/joinMember.do")//회원가입
-    public String joinUser(MemberDTO2 dto, String m, String b, String t, String i){
+    public String joinUser(MemberDTO dto, String m, String b, String t, String i){
         String getMbti=m+b+t+i;
         dto.setMbti(getMbti);
-        memberService2.join(dto);
+        memberService.join(dto);
         return "neighborMember/join";
     }
     @GetMapping("/logout")//로그아웃
     public String logout(HttpSession session){
-        memberService2.logout(session);
+        memberService.logout(session);
         return "logoutTest";
     }
 
