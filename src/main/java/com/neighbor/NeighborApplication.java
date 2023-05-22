@@ -1,4 +1,4 @@
-package com.neighbor.market;
+package com.neighbor;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;

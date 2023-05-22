@@ -3,7 +3,7 @@ package com.neighbor.market.dto;
 import java.util.Date;
 
 
-public class MemberDTO {
+public class MemberDTO2 {
     private long memberId;//id값, 진짜 아이디는 아님
     private String memberName;//진짜 닉네임
     private String memberPassword;
@@ -20,7 +20,7 @@ public class MemberDTO {
     //
 
 
-    public MemberDTO() {
+    public MemberDTO2() {
         this.memberId = memberId;
         this.memberName = memberName;
         this.memberPassword = memberPassword;
