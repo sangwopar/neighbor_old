@@ -19,7 +19,7 @@ public class NeighborApplication {
 	}
 	@Bean
 	public SqlSessionFactory sqlSessionFactory(DataSource dataSource)
-		throws Exception{
+			throws Exception{
 		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
 		bean.setDataSource(dataSource);
 		return bean.getObject();
