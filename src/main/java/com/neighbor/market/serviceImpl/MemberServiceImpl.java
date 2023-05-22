@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -22,6 +24,7 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public void join(MemberDTO dto) {//회원가입
         memberDao.join(dto);
+
     }
 
     @Override
@@ -45,5 +48,15 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public boolean passCheck(String userEmail, String userPassword) {
         return false;
+    }
+
+    @Override
+    public void memberOut(HttpSession session) {//회원탈퇴
+        Map<String,Object> map = new HashMap<>();
+        map.put("memberName",session.getAttribute("memberName"));
+        map.put("memberId",session.getAttribute("memberId"));
+        System.out.println(map);
+        memberDao.memberOut((Map<String, Object>) map);
+
     }
 }
