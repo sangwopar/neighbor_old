@@ -1,34 +1,33 @@
 package com.neighbor.market.serviceImpl;
 
-import com.neighbor.market.dao.MemberDAO;
-import com.neighbor.market.dto.MemberDTO;
-import com.neighbor.market.service.MemberService;
+import com.neighbor.market.dao.MemberDAO2;
+import com.neighbor.market.dto.MemberDTO2;
+import com.neighbor.market.service.MemberService2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Service
-public class MemberServiceImpl implements MemberService {
+public class MemberService2Impl implements MemberService2 {
 
-    private MemberDAO memberDao;//매퍼
+    private MemberDAO2 memberDao2;//매퍼
     @Autowired
-    public MemberServiceImpl(MemberDAO memberDao){
-        this.memberDao=memberDao;
+    public MemberService2Impl(MemberDAO2 memberDao2){
+        this.memberDao2 = memberDao2;
     }
 
 
     @Override
-    public void join(MemberDTO dto) {//회원가입
-        memberDao.join(dto);
+    public void join(MemberDTO2 dto) {//회원가입
+        memberDao2.join(dto);
     }
 
     @Override
-    public int login(MemberDTO dto, HttpSession session){//로그인
+    public int login(MemberDTO2 dto, HttpSession session){//로그인
         int result =0;
 
-        MemberDTO dto2=memberDao.login(dto);
+        MemberDTO2 dto2= memberDao2.login(dto);
         if(dto2 != null){
             session.setAttribute("memberId",dto2.getMemberId());
             session.setAttribute("memberName",dto2.getMemberName());
