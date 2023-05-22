@@ -6,10 +6,7 @@ import com.neighbor.market.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
-import java.util.Map;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -17,21 +14,20 @@ public class MemberServiceImpl implements MemberService {
     private MemberDAO memberDao;//매퍼
     @Autowired
     public MemberServiceImpl(MemberDAO memberDao){
-        this.memberDao=memberDao;
+        this.memberDao = memberDao;
     }
 
 
     @Override
     public void join(MemberDTO dto) {//회원가입
         memberDao.join(dto);
-
     }
 
     @Override
     public int login(MemberDTO dto, HttpSession session){//로그인
         int result =0;
 
-        MemberDTO dto2=memberDao.login(dto);
+        MemberDTO dto2= memberDao.login(dto);
         if(dto2 != null){
             session.setAttribute("memberId",dto2.getMemberId());
             session.setAttribute("memberName",dto2.getMemberName());
@@ -51,12 +47,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public void memberOut(HttpSession session) {//회원탈퇴
-        Map<String,Object> map = new HashMap<>();
-        map.put("memberName",session.getAttribute("memberName"));
-        map.put("memberId",session.getAttribute("memberId"));
-        System.out.println(map);
-        memberDao.memberOut((Map<String, Object>) map);
+    public void memberOut(HttpSession session) {
 
     }
 }
